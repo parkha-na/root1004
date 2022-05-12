@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	function Ck(){
+		if(f1.sno.value == "") {
+			alert("학번을 입력해주세요");
+			return false;
+		}
+	}
+</script>
+<body>
+<div align="center">
+<h1>회원가입 (<a href="index.html">index</a>)</h1>
+<form name=f1 th:action="@{/insert}" method="post" onSubmit="return Ck()">
+<table border=1>
+<tr><td th:text="sno"></td><td><input type=text name="sno" size=7></td></tr>
+<tr><td th:text="sname"></td><td><input type=text name="sname" size=15 ></td></tr>
+<tr><td th:text="kor"></td><td><input type=text name="kor" size=15 ></td></tr>
+<tr><td th:text="eng"></td><td><input type=text name="eng" size=15 ></td></tr>
+<tr><td th:text="math"></td><td><input type=text name="math" size=15 ></td></tr>
+<tr><td th:text="hist"></td><td><input type=text name="hist" size=15 ></td></tr>
+<tr><td colspan=2 align="center">
+  <input type=submit value="저장하기" >
+  </td>
+  </tr>
+  </table>
+  </form>
+</div>
+</body>
+</html>

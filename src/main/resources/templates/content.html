@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div align="center">
+<h1>회원상세보기</h1>
+<form name="f1" th:action="@{/update}" method="post">
+<table border=1>
+<tr><td th:text="sno"></td><td><input type=text name="sno" size=7 th:value="${m.sno}"></td></tr>
+<tr><td th:text="sname"></td><td><input type=text name="sname" size=15 th:value="${m.sname}"></td></tr>
+<tr><td th:text="kor"></td><td>
+    <input type=text name="kor" size=15 th:value="${m.kor}"></td></tr>
+<tr><td th:text="eng"></td><td>
+    <input type=text name="eng" size=15 th:value="${m.eng}"></td></tr>
+<tr><td th:text="math"></td><td>
+    <input type=text name="math" size=15 th:value="${m.math}"></td></tr>
+<tr><td th:text="hist"></td><td>
+    <input type=text name="hist" size=15 th:value="${m.hist}"></td></tr>    
+<tr><td>합계</td><td th:text="${m.kor} + ${m.eng} + ${m.math} + ${m.hist}"></td></tr>
+<tr><td>평균</td><td th:text="(${m.kor} + ${m.eng} + ${m.math} + ${m.hist})/4"></td></tr>
+<tr><td colspan=2 align="center">
+  <input type=submit value="수정" >
+  <input type=button th:onClick="del([[${m.sno}]])" value="삭제" >
+  </td>
+  </tr>
+  </table>
+  </form>
+</div>
+</body>
+</html>
+<script>
+	function del(d){
+		alert("확인 " + d);
+		location.href="/delete?sno=" + d;
+	}
+</script>

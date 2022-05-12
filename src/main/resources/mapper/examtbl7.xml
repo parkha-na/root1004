@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.majustory.exam.ExamDao">
+	<select id="select" resultType="com.majustory.exam.ExamVo">
+		<![CDATA[
+			select * from examtbl7
+		]]>
+	</select>
+	<insert id="insert" parameterType="com.majustory.exam.ExamVo">
+		<![CDATA[
+			insert into examtbl7 (sno, sname, kor,eng,math,hist)
+			values(#{sno}, #{sname}, #{kor}, #{eng}, #{math}, #{hist})
+		]]>
+	</insert>
+	<select id="content" resultType="com.majustory.exam.ExamVo">
+		<![CDATA[
+			select * from examtbl7 where sno = #{sno}
+		]]>
+	</select>
+</mapper>
